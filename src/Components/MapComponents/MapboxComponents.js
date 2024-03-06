@@ -26,7 +26,14 @@ const MapboxComponent = () => {
   
       map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
   
+      
       map.current.on("load", ()=> {
+
+         // Add a pin marker to the map
+         new mapboxgl.Marker()
+         .setLngLat([lng, lat])
+         .addTo(map.current);  
+
           map.current.resize();
       })
   
