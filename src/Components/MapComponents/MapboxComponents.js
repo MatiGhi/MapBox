@@ -10,18 +10,19 @@ const MapboxComponent = () => {
     const mapContainerRef = useRef(null);
     const map = useRef(null);
   
-    const [lng] = useState(-97.7431);
-    const [lat] = useState(30.2672);
+    const [lng] = useState(-58.2352); 
+    const [lat] = useState(-32.4849); 
     const [zoom] = useState(2);
   
-    useEffect(() => {
-      map.current = new mapboxgl.Map({
-        container: mapContainerRef.current,
-        style: 'mapbox://styles/mapbox/streets-v12',
-        //style: 'mapbox://styles/mapbox/standard',
-        center: [lng, lat],
-        zoom: zoom
-      });
+      useEffect(() => {
+        map.current = new mapboxgl.Map({
+            container: mapContainerRef.current,          
+            style: 'mapbox://styles/mapbox/standard',
+            center: [lng, lat],
+            zoom: 12, 
+            pitch: 45, 
+            bearing: -17.6 
+        });
   
       map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
   
